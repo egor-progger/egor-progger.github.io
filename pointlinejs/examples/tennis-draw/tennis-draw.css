@@ -1,0 +1,315 @@
+/* required LIB STYLES */
+/* .Treant se automatski dodaje na svaki chart conatiner */
+.Treant {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.Treant > .node,
+.Treant > .pseudo {
+  position: absolute;
+  display: block;
+  visibility: visible;
+}
+
+.Treant.Treant-loaded .node,
+.Treant.Treant-loaded .pseudo {
+  visibility: visible;
+}
+
+.Treant > .pseudo {
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+}
+
+.Treant .collapse-switch {
+  width: 3px;
+  height: 3px;
+  display: block;
+  border: 1px solid black;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  cursor: pointer;
+}
+
+.Treant .collapsed .collapse-switch {
+  background-color: #868dee;
+}
+
+.Treant > .node img {
+  border: none;
+  float: left;
+}
+/*
+ * Container style
+ */
+.ps {
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  display: none;
+  opacity: 0;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  height: 15px;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  bottom: 0px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-y {
+  display: none;
+  opacity: 0;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  width: 15px;
+  /* there must be 'right' or 'left' for ps__rail-y */
+  right: 0;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity: 0.6;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition: background-color 0.2s linear, height 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear, height 0.2s ease-in-out;
+  height: 6px;
+  /* there must be 'bottom' for ps__thumb-x */
+  bottom: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__thumb-y {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  width: 6px;
+  /* there must be 'right' for ps__thumb-y */
+  right: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  background-color: #999;
+  height: 11px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  background-color: #999;
+  width: 11px;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+abbr,
+acronym {
+  border: 0;
+}
+
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* optional Container STYLES */
+.chart {
+  height: 600px;
+  width: 900px;
+  margin: 5px;
+  margin: 15px auto;
+  border: 3px solid #ddd;
+  border-radius: 3px;
+}
+
+.tennis-draw {
+  font-size: 10px;
+  width: 100px;
+}
+
+.tennis-draw.winner {
+  height: 38px;
+}
+
+.tennis-draw.winner:hover {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACRElEQVR4Xo3RTUhUURjH4d89c/0aSWfEYsSZEUPMGqKkSJLA0mpjkIS0MPpAIRkjCGpXoEG1iFYJDolg5sIkl0EijTCbMiyoJKXCCtO0ND/mo+uMOjcvc+DCDETP5hx4z3t4z/8o/lb1AtAFXFaE+irL5r4n0jKPZOYUYtJZXZlhY03za0vfrgF7gQdAiwpcB86AciunYE9JXvFBtjjKyC+pMtv1OAufA4Tmxmt+vBvoi0UWrMA54K4xwTqgAg7ge+nRS2ro1xi/J8eRQFHIde3A7irn01D7GlAMzAB/BDAHOOS6ZC/Mw+nJp7SmHGelhxxPMRa3g9yibOwFNoBl2bwV0ATQDzSREFiZnTRGJoWuY9SAAAkNQK8AbgMXgWOA7+vLQXQ9E1CQ5N7KlxfPAHxAtey5IYBF4IRMtSoaWrw/OzGFItKREJZ0gtM/iYWX2oEDQHcieMKChDGgQmZxcnZshGhEgCJQFIEFK/MToxg1oASoBN4CGL9AKprSrbldRYerCAU15l+PsLEaagY6SWJekEovq2skHNaYft4ng0ilVretITHclgZQC3gTb8/GolqQnsgAhzEhMLEQLe8UatbT3ae7ayua+4lvRIivR9jZ8JBddR310bjdPx/d34EJRdd1DD1X9hkF7/GGRuY+DLAyM7rZHMUg1AzsRYdweOoZfOQD8Lls71sAVBKMsLznb/ayPBkgI8PJtu1OksWCQU5d7aSn9awXG0kXLGsM3fHybx+Bx8ZZcEPyBL43wSkv/8eH9BfFt82WRl2XsAAAAABJRU5ErkJggg==) right 0 no-repeat;
+}
+
+.tennis-draw.winner .node-name {
+  padding-left: 10px;
+  margin-top: 1px;
+  display: block;
+}
+
+.tennis-draw .node-name {
+  padding: 2px;
+  white-space: pre;
+  color: #00aff0;
+}
+
+.tennis-draw .node-desc {
+  padding: 2px;
+  color: #999;
+}
+
+.tennis-draw.first-draw .node-title,
+.tennis-draw.first-draw .node-name,
+.tennis-draw.first-draw img {
+  position: absolute;
+  top: -8px;
+}
+
+.tennis-draw.first-draw:hover img {
+  width: 20px;
+  top: -12px;
+}
+
+.tennis-draw.first-draw {
+  width: 165px;
+  height: 20px;
+}
+
+.tennis-draw.first-draw img {
+  margin: 3px 4px 0 0;
+  left: 25px;
+}
+
+.tennis-draw.first-draw .node-title {
+  margin-top: 3px;
+}
+
+.tennis-draw.first-draw .node-name {
+  width: 113px;
+  padding-left: 50px;
+}
+
+.tennis-draw.first-draw.bye .node-name {
+  color: #999;
+}
